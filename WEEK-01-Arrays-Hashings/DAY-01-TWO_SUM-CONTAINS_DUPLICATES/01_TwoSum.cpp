@@ -36,17 +36,17 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 
 
 /*
-APPROACH-
+APPROACHES:
 
-1. Brute-force:
-    One loop to iterate over all elements
-    Another nested loop to check from (i + 1)th element
-    add both the elements and check if it is equal to target or not
-    If yes, return i and j
-    else return empty list.
-
-    Time complexity: O(n^2)
-    Space complexity: O(1)
+1. Brute Force Method:
+    - Use two nested loops to check all possible pairs
+    - Outer loop iterates through each element
+    - Inner loop checks all subsequent elements for the complement
+    - If sum equals target, return the indices
+    - If no pair found, return empty vector
+    
+    Time Complexity: O(n²)
+    Space Complexity: O(1)
 
 2. Hash maps
     Create a map to store key-val pair
