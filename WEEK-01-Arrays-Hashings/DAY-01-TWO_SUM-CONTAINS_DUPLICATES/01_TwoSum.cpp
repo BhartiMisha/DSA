@@ -45,6 +45,9 @@ APPROACH-
     If yes, return i and j
     else return empty list.
 
+    Time complexity: O(n^2)
+    Space complexity: O(1)
+
 2. Hash maps
     Create a map to store key-val pair
     where, key is element of list and val is its index
@@ -52,6 +55,9 @@ APPROACH-
     if |target - curr_ele| is present in the map
     then get the value (index) of each of the element (remaining/complement and current element of the list) 
     else return an empty list
+
+    Time complexity: O(n)
+    Space complexity: O(n)
 */
 
 #include <iostream>
