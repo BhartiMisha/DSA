@@ -34,6 +34,12 @@ APPROACHES
     Just sort the elements of the list
     And check for the sequence
 
+    Time Complexity: O(n log n)
+    Space Complexity: O(1) -> Sort the same list
+
+
+
+
 2. Priority queue
     IDEA: In priority queue, elements are dequed based on priority (maximum num). So this way we can arrange it backwards and keep on popping to get the sequence.
     LOGIC: Create a priority queue and store the all the elements of the list to this. 
@@ -49,50 +55,123 @@ APPROACHES
 
     Time Complexity: O(n log n) -> n for total num and log n for push and pop operation
     Space Complexity: O(n)
+
+
+
+
+3. Hashed Set (unordered set)
+    IDEA: The idea is that for any sequence the prev number is not going to be present and the next numbers can be found by incrementing it
+    Also, set is used to eliminate duplicates
+    Ex- [100,4,200,1,3,2]
+        100-> nothing on left, so seq started but nothing on right either. So total length = 1
+        4 -> Something on left i.e. 3 present so skip
+        200 -> Same like 100
+        1 -> Nothing on left so start seq till the last number in seq is found. So total length [1,2,3,4] is 4
+        3 -> Same like 4
+        2 -> Same like 4
+
+
+    LOGIC:
+    Create a hashed set and add all the elements of the list to it
+    Start with first element, if there's a number present one smaller to it then skip
+    Else set the curr_seq to 1, now iterate in the set from (this element + curr_seq) till the last element in the sequence is found
+    finally out of the loop, assign the max(curr_seq, longest) to the longest_seq
+    return longest_seq
+
+    Time Complexity: O(n)
+        Each number in the set is visited at most once in the while loop across the entire algorithm.
+        Why? Because you only start expanding when you’re at the start of a sequence.
+        Example: For sequence [100, 101, 102, 103]
+            You’ll expand from 100 → 101 → 102 → 103 once.
+            You’ll never expand starting at 101, 102, or 103, because their num-1 exists.
+        So the total work inside all while loops combined = O(n).
+    Space Complexity: O(n)
 */
 
 
 #include <iostream>
+#include <algorithm>
 #include <queue>
+#include <unordered_set>
 
 using namespace std;
 
 class Solution {
     public:
         int longestConsecutive(vector<int>& nums) {
-            // APPROACH 2: Priority queue
-            int globalCount = 0, curr_count = 0, prev = 0;
-            priority_queue<int> pq;
-            for(int i = 0; i < nums.size(); i++){
-                pq.push(nums[i]);
-            }
-    
-            if(nums.size() == 0)
-                return 0;
+            // APPROACH 1: SORTING
+            // if (nums.empty()) return 0;
             
-            prev = pq.top();
-            pq.pop();
-            curr_count = 1, globalCount = 1;
-            while(pq.size()){
-                int curr = pq.top();
-                if(curr == prev)
-                {
-                    pq.pop();
-                    continue;
+            // sort(nums.begin(), nums.end());
+            
+            // int maxLength = 1;
+            // int currentLength = 1;
+            
+            // for (int i = 1; i < nums.size(); i++) {
+            //     if (nums[i] == nums[i-1]) {
+            //         continue; // Skip duplicates
+            //     }
+            //     if (nums[i] == nums[i-1] + 1) {
+            //         currentLength++;
+            //     } else {
+            //         maxLength = max(maxLength, currentLength);
+            //         currentLength = 1;
+            //     }
+            // }
+            
+            // maxLength = max(maxLength, currentLength);
+            // return maxLength;
+
+            // APPROACH 2: Priority queue
+        //     int globalCount = 0, curr_count = 0, prev = 0;
+        //     priority_queue<int> pq;
+        //     for(int i = 0; i < nums.size(); i++){
+        //         pq.push(nums[i]);
+        //     }
+    
+        //     if(nums.size() == 0)
+        //         return 0;
+            
+        //     prev = pq.top();
+        //     pq.pop();
+        //     curr_count = 1, globalCount = 1;
+        //     while(pq.size()){
+        //         int curr = pq.top();
+        //         if(curr == prev)
+        //         {
+        //             pq.pop();
+        //             continue;
+        //         }
+        //         if(curr == prev-1){
+        //             curr_count++;
+        //             pq.pop();
+        //             prev = curr;
+        //             if(curr_count > globalCount){
+        //                 globalCount = curr_count;
+        //             }
+        //         } else{
+        //             prev = curr;
+        //             curr_count = 1;
+        //         }
+        //     }
+        // return globalCount;
+
+
+
+        // APPROACH 3: HASH SET
+        int max_seq = 0;
+        unordered_set<int> us(nums.begin(), nums.end());
+        for(int num: us) {
+            if(us.find(num - 1) == us.end())
+            {
+                int curr_length = 1;
+                while(us.find(num + curr_length) != us.end()){
+                    curr_length++;
                 }
-                if(curr == prev-1){
-                    curr_count++;
-                    pq.pop();
-                    prev = curr;
-                    if(curr_count > globalCount){
-                        globalCount = curr_count;
-                    }
-                } else{
-                    prev = curr;
-                    curr_count = 1;
-                }
+                max_seq = max(curr_length, max_seq);
             }
-        return globalCount;
+        }
+        return max_seq;
         }
     };
 
