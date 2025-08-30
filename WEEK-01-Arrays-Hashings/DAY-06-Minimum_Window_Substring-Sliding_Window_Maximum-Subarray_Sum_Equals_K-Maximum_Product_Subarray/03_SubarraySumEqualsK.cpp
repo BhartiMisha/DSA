@@ -69,6 +69,9 @@ APPRAOCHES:
             If yes → add its frequency to the result (because that many subarrays end here with sum k).
         Update hashmap with the new prefix[j].
     return result
+
+    Time Complexity: O(n)
+    Space Complexity: O(n)
 */
 
 
