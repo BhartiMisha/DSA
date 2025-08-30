@@ -85,74 +85,74 @@ g++ -o solution 01_TwoSum.cpp
 ## 📊 Topics/Problems Covered
 
 # WEEK 1
-Two Sum
-Contains Duplicate
-Valid Anagram
-Group Anagrams
-Product of Array Except Self
-Top K Frequent Elements
-Encode/Decode Strings (LC 271)
-Valid Sudoku
-Longest Consecutive Sequence
-Longest Substring Without Repeating Characters
-Minimum Window Substring
-Sliding Window Maximum
-Subarray Sum Equals K
-Maximum Product Subarray
-Merge Intervals
+- Two Sum
+- Contains Duplicate
+- Valid Anagram
+- Group Anagrams
+- Product of Array Except Self
+- Top K Frequent Elements
+- Encode/Decode Strings (LC 271)
+- Valid Sudoku
+- Longest Consecutive Sequence
+- Longest Substring Without Repeating Characters
+- Minimum Window Substring
+- Sliding Window Maximum
+- Subarray Sum Equals K
+- Maximum Product Subarray
+- Merge Intervals
 
 # WEEK 2
-Valid Palindrome
-Two Sum II
-3Sum
-Container With Most Water
-Trapping Rain Water
-Remove Duplicates from Sorted Array
-Minimum Size Subarray Sum
-Longest Repeating Character Replacement
-Permutation in String
-Find All Anagrams in a String
-Maximum Average Subarray I
-Longest Subarray of Ones After Deleting One Element
-Max Consecutive Ones III
-Partition Labels
-Sort Colors
+- Valid Palindrome
+- Two Sum II
+- 3Sum
+- Container With Most Water
+- Trapping Rain Water
+- Remove Duplicates from Sorted Array
+- Minimum Size Subarray Sum
+- Longest Repeating Character Replacement
+- Permutation in String
+- Find All Anagrams in a String
+- Maximum Average Subarray I
+- Longest Subarray of Ones After Deleting One Element
+- Max Consecutive Ones III
+- Partition Labels
+- Sort Colors
 
 # WEEK 3
-Valid Parentheses
-Min Stack
-Evaluate Reverse Polish Notation
-Generate Parentheses
-Daily Temperatures
-Largest Rectangle in Histogram
-Search in Rotated Sorted Array
-Find Minimum in Rotated Sorted Array
-Median of Two Sorted Arrays
-Search a 2D Matrix
-Find Peak Element
-Kth Smallest Element in Sorted Matrix
-Split Array Largest Sum
-Time Based Key-Value Store
-Binary Search template practice
+- Valid Parentheses
+- Min Stack
+- Evaluate Reverse Polish Notation
+- Generate Parentheses
+- Daily Temperatures
+- Largest Rectangle in Histogram
+- Search in Rotated Sorted Array
+- Find Minimum in Rotated Sorted Array
+- Median of Two Sorted Arrays
+- Search a 2D Matrix
+- Find Peak Element
+- Kth Smallest Element in Sorted Matrix
+- Split Array Largest Sum
+- Time Based Key-Value Store
+- Binary Search template practice
 
 # WEEK 4
-Reverse Linked List
-Merge Two Sorted Lists
-Reorder List
-Remove Nth Node From End of List
-Linked List Cycle
-Linked List Cycle II
-Copy List with Random Pointer
-Add Two Numbers
-Intersection of Two Linked Lists
-Palindrome Linked List
-LRU Cache
-LFU Cache
-Flatten a Multilevel Doubly Linked List
-Rotate List
-Merge k Sorted Lists
-Review all Linked List problems
-Mock Interview / DBMS Quick Revision
+- Reverse Linked List
+- Merge Two Sorted Lists
+- Reorder List
+- Remove Nth Node From End of List
+- Linked List Cycle
+- Linked List Cycle II
+- Copy List with Random Pointer
+- Add Two Numbers
+- Intersection of Two Linked Lists
+- Palindrome Linked List
+- LRU Cache
+- LFU Cache
+- Flatten a Multilevel Doubly Linked List
+- Rotate List
+- Merge k Sorted Lists
+- Review all Linked List problems
+- Mock Interview / DBMS Quick Revision
 
 ## 💡 Learning Approach
 
@@ -236,6 +236,7 @@ Feel free to contribute by:
 - [HackerRank](https://www.hackerrank.com/)
 - [Codeforces](https://codeforces.com/)
 - [AtCoder](https://atcoder.jp/)
+- [Neetcode](https://neetcode.io/practice?tab=allNC)
 
 This project is for educational purposes. Feel free to use and modify the code for your learning.
 
