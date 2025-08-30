@@ -58,7 +58,26 @@ APPROACHES:
     the longest sequence value will be max of longest 
     Finally out of the main loop, return longest
 
-    Time Complexity: O(n) -> Each element is visited maximum twice (one when found next when removing)
+    Time Complexity: O(n) -> Each element is visited maximum twice (one when found next when removing) so it is O(2n) that will eventually be O(n)
+    Space Complexity: O(n)
+
+
+
+
+3. Sliding Window (Optimal with HashMaps)
+    IDEA: We'll again use sliding window technique. 
+    But unlike the previous method where we were iterating internally till the match is found
+    we'll be using Hash maps that will store the last occurence of any character. 
+    LOGIC:
+    Create a hash map to store individual characters and their last known index.
+    Create a res and left index variable and assign 0 to them.
+    Iterate over the string
+    Check if the current char is present in the map, if yes, update left variable to the last occurence + 1 (we're basically sliding the window here)
+    If not, add this character and its position/index in the map 
+    Result will be maximum of result and right - left + 1
+    return result
+
+    Time Complexity: O(n) [In appraoch 2, it was O(2n)]
     Space Complexity: O(n)
 */
 
@@ -92,20 +111,34 @@ class Solution {
 
 
 
-        // APPROACH 2: SLIDING WINDOW WITH SET
-        set<char> charSet;
-        int left = 0, longest = 0;
-        for(int right = 0; right < s.size(); right++)
-        {
-            char curr = s[right];
-            while(charSet.find(curr) != charSet.end()){
-                charSet.erase(s[left]);
-                left++;
+        // // APPROACH 2: SLIDING WINDOW WITH SET
+        // set<char> charSet;
+        // int left = 0, longest = 0;
+        // for(int right = 0; right < s.size(); right++)
+        // {
+        //     char curr = s[right];
+        //     while(charSet.find(curr) != charSet.end()){
+        //         charSet.erase(s[left]);
+        //         left++;
+        //     }
+        //     charSet.insert(curr);
+        //     longest = max(longest, right - left + 1);
+        // } 
+        // return longest;
+
+
+
+        // APPROACH 3: SLIDING WINDOW (OPTIMAL)
+        unordered_map<char, int> charIndex;
+        int res = 0, left = 0;
+        for(int right = 0; right < s.size(); right++) {
+            if(charIndex.find(s[right]) != charIndex.end()) {
+                left = max(charIndex[s[right]] + 1, left);
             }
-            charSet.insert(curr);
-            longest = max(longest, right - left + 1);
-        } 
-        return longest;
+            charIndex[s[right]] = right;
+            res = max(res, right - left + 1);
+        }
+        return res;
         }
     };
 
