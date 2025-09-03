@@ -54,6 +54,9 @@ APPROACHES:
         Replace result with the max value between result and the total area calculated
         Now move the pointer left or right based on which height is small, if right's height is small, decrement the right pointer and vice versa.
     return the result
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
 */
 
 
