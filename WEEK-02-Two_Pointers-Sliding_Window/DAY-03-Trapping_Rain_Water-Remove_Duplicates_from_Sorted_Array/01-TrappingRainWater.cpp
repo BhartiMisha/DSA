@@ -20,7 +20,32 @@ n == height.length
 */
 
 
+/*
+APPROACHES:
 
+1. Brute-Force (TIME LIMIT EXCEEDED)
+    IDEA: For any given bar at index i, the amount of water it can trap depends on the tallest bar to its left and the tallest bar to its right.
+    The water above height[i] is determined by the smaller of these two walls (min(leftMax, rightMax)), because water will spill over the shorter side.
+    Then subtract the height of the current bar (height[i]) to get the trapped water at that position.
+    If the result is negative, we take 0 (because water can’t go below ground level).
+    LOGIC:
+    Create a result and assign value 0
+    Traverse through the arary
+        For any given height, get the max height on left and right.
+        Now based on the idea, it can trap water in the minimum area between left and right max minus the current height (since current height is already occupied)
+        Keep on adding to the result the min value between left and right max heights minus the current height. Also consider the fact that it cannot be a value less than zero
+        So the final solution will be:
+            max(0, min(leftMaxHeight, rightMaxHeight) - currHeight)
+    return result
+
+    Time Complexity: O(n^2)
+    Space Complexity: O(1)
+*/
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
 class Solution {
     public:
         int trap(vector<int>& height) {
@@ -33,8 +58,21 @@ class Solution {
                 for(int j = i + 1; j < height.size(); j++) {
                     rightMax = max(rightMax, height[j]);
                 }
-                res += min(leftMax, rightMax) - height[i];
+                res += max(0, min(leftMax, rightMax) - height[i]);
             } 
             return res;
         }
     };
+
+    int main() {
+    Solution sol;
+
+    // Example input
+    vector<int> height = {0,1,0,2,1,0,1,3,2,1,2,1};
+
+    int result = sol.trap(height);
+
+    cout << "Total trapped water: " << result << endl;
+
+    return 0;
+}
